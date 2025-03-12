@@ -29,7 +29,7 @@ interface StreamChunk {
 }
 
 // Base API URL for the local server
-const API_URL = "http://localhost:8080";
+const API_URL = "http://127.0.0.1:8080";
 const COMPLETION_ENDPOINT = "/completion";
 
 // Instruction for the LLaMA chat format
@@ -71,7 +71,7 @@ export async function sendChatRequest(messages: Message[]): Promise<string> {
     });
 
     if (!response.ok) {
-      throw new Error(`API error: ${response.status}`);
+      throw new Error(`API error: ${response.status} - ${response.statusText}`);
     }
 
     const data = await response.json();
@@ -79,7 +79,7 @@ export async function sendChatRequest(messages: Message[]): Promise<string> {
       
   } catch (error) {
     console.error("Error calling LLaMA API:", error);
-    return "Sorry, I encountered an error communicating with the local LLM.";
+    return `Sorry, I encountered an error communicating with the local LLM: ${error.message}`;
   }
 }
 
@@ -169,6 +169,6 @@ export async function streamChatResponse(
     }
     
     console.error("Streaming error:", error);
-    return "Sorry, I encountered an error while connecting to the local LLM.";
+    return `Sorry, I encountered an error while connecting to the local LLM: ${error.message}`;
   }
 }

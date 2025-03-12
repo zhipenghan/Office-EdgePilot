@@ -7,7 +7,7 @@
   },
   "license": "MIT",
   "config": {
-    "app_to_debug": "excel",
+    "app_to_debug": "powerpoint",
     "app_type_to_debug": "desktop",
     "dev_server_port": 3000
   },
@@ -25,12 +25,12 @@
     "prettier": "office-addin-lint prettier",
     "signin": "office-addin-dev-settings m365-account login",
     "signout": "office-addin-dev-settings m365-account logout",
-    "start": "office-addin-debugging start manifest.xml",
-    "stop": "office-addin-debugging stop manifest.xml",
+    "start": "office-addin-debugging start manifest.powerpoint.xml",
+    "stop": "office-addin-debugging stop manifest.powerpoint.xml",
     "test": "npm run test:unit && npm run test:e2e",
     "test:e2e": "mocha -r ts-node/register test/end-to-end/*.ts",
     "test:unit": "mocha -r ts-node/register test/unit/*.test.ts",
-    "validate": "office-addin-manifest validate manifest.xml",
+    "validate": "office-addin-manifest validate manifest.powerpoint.xml",
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {

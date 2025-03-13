@@ -24,10 +24,6 @@ const useStyles = makeStyles({
     flex: "1 1 auto",
     overflow: "hidden", // Prevent content scrolling
   },
-  heroListContainer: {
-    padding: "20px 20px 10px 20px",
-    flexShrink: 0, // Prevent hero list from shrinking
-  },
   textInsertionContainer: {
     padding: "0 20px 20px 20px",
     flex: "1 1 auto", // Allow text insertion to grow and fill available space
@@ -38,20 +34,6 @@ const useStyles = makeStyles({
 
 const App: React.FC<AppProps> = (props: AppProps) => {
   const styles = useStyles();
-  const listItems: HeroListItem[] = [
-    {
-      icon: <Ribbon24Regular primaryFill={tokens.colorBrandForeground1} />,
-      primaryText: "Achieve more with Office integration",
-    },
-    {
-      icon: <LockOpen24Regular primaryFill={tokens.colorBrandForeground1} />,
-      primaryText: "Unlock features with Local LLMs",
-    },
-    {
-      icon: <DesignIdeas24Regular primaryFill={tokens.colorBrandForeground1} />,
-      primaryText: "Build AI Feature with Local LLM faster",
-    }
-  ];
 
   return (
     <div className={styles.root}>
@@ -61,12 +43,6 @@ const App: React.FC<AppProps> = (props: AppProps) => {
         message="Local LLM Playground"
       />
       <div className={styles.content}>
-        <div className={styles.heroListContainer}>
-          <HeroList
-            message="Discover what local Pilot can do for you today!"
-            items={listItems}
-          />
-        </div>
         <div className={styles.textInsertionContainer}>
           <TextInsertion insertText={insertText} />
         </div>
